@@ -1,0 +1,23 @@
+{
+  "name": "chat_server",
+  "version": "1.0.0",
+  "description": "Chat server using socket.io",
+  "main": "server.js",
+  "reprository": {
+    "type": "git",
+    "url": "https://github.com/pranjalkansal/socket_backend.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Pranjal Kansal",
+  "license": "ISC",
+  "dependencies": {
+    "hapi": "^13.0.0",
+    "hapi-swagger": "^4.2.1",
+    "inert": "^3.2.0",
+    "mongoose": "^4.4.5",
+    "socket.io": "^1.4.5",
+    "vision": "^4.0.1"
+  }
+}
