@@ -1,13 +1,24 @@
 'use strict';
 
-const io = require('socket.io')(3000);
-var chat = io.of('/chat');
+const Hapi = require('hapi');
+const Plugins = require('./plugins/index.js');
+const Routes = require('./routes/index.js');
 
-chat.on('connection', function (socket) {
-    console.log('connected'); 
-    socket.on('message', function (message) {
-	console.log(message);
-        chat.send('request_recived');
-	socket.send('processing data!!');
-    });
+const server = new Hapi.Server();
+
+sever.connection({
+  host: 'localhost',
+  port: 5000
+});
+
+server.register(Pluigns, function (error) {
+  error?(server.log(['error'], 'Plugins loading error!!')):(server.log(['start'], 'Plugins loaded successfully!!'));
+});
+
+Routes.forEach(function (route) {
+  server.route(route);
+});
+
+server.start(function (error) {
+  error?(console.log(error)):(console.log('Server running at: ' + server.info.uri));
 });
