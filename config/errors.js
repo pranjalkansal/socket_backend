@@ -10,6 +10,10 @@ request_feedback.user: {
 	register: {
 		error: 'Email is already registered!!',
 		success: 'User registered successfully!!'
+	},
+	request: {
+		error: 'Username invalid!!',
+		success: 'Username registered successfully!!'
 	}
 };
 
