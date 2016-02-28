@@ -16,7 +16,7 @@ var vaildate_username = function (username) {
 user_controller.user_register = function (request, reply) {
   if(validate_username(request.payload.username)) {
     let User = Mongoose.model('users', Schema.user_query.register);
-    let user_regiter = new User({request.payload.username, 1});
+    let user_regiter = new User({request.payload.username, 1, new Date(), new Date()});
     user_regiter.save(function (error) {}); // Register new user
   }
   else {
